@@ -16,26 +16,11 @@ public class UniversityManagementView {
         menu.addItem("Quan li thong tin khoa hoc");
         menu.addItem("Dang ki mon hoc cho sinh vien");
         menu.addItem("Tao bao cao");
-        menu.addItem("Thoat");
         return menu;
     }
     
     public int getOption(Menu menu) {
         return menu.getChoiceFromMenu("HE THONG QUAN LI DAI HOC");
     }
-    
-    public Menu displayMenuStudent() {
-        Menu menu = new Menu();
-        menu.addItem("Them sinh vien");
-        menu.addItem("Sua sinh vien");
-        menu.addItem("Xoa sinh vien");
-        menu.addItem("Quay lai");
-        return menu;
-    }
-    
-    public int getOptionStudent(Menu menu) {
-        return menu.getChoiceFromMenu("QUAN LI SINH VIEN");
-    }
-    
     
 }
