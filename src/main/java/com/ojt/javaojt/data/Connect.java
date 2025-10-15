@@ -10,8 +10,8 @@ public class Connect {
     private Connection connection;
     private String connecttionUrl = "jdbc:sqlserver://ADMIN\\DE180173:1433;"
             + "databaseName=university_management;"
-            + "user=sa;"
-            + "password=121121;"
+            + "user=;"
+            + "password=;"
             + "encrypt=true;trustServerCertificate=true;";
     
     public Connect() throws SQLException {
