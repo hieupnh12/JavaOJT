@@ -60,7 +60,9 @@ public class Student {
 
     @Override
     public String toString() {
-        return "Student{" + "student_id=" + student_id + ", name=" + name + ", date=" + date + ", email=" + email + '}';
+        return String.format(
+                 "|%-8s|%-25s|%-15s|%-25s|", this.student_id, this.name, this.date, this.email
+        );   
     }
     
 }

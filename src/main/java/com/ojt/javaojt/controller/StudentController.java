@@ -1,13 +1,15 @@
 
 package com.ojt.javaojt.controller;
 
+import com.ojt.javaojt.data.StudentDAO;
 import com.ojt.javaojt.validate_menu.Menu;
 import com.ojt.javaojt.view.StudentView;
+import java.sql.SQLException;
 
 
 public class StudentController {
     private StudentView studentView;
-
+    
     public StudentController() {
     }
 
@@ -15,7 +17,7 @@ public class StudentController {
         this.studentView = studentView;
     }
     
-    public void start() {
+    public void start() throws SQLException {
         int choice;
         Menu menu = studentView.displayMenuStudent();
         
@@ -26,6 +28,9 @@ public class StudentController {
                 case 1 -> listAllStudent();
                 case 2 -> addStudent();
                 case 3 -> removeStudent(); 
+                case 5 -> {
+                    return;
+                }
                 default -> throw new AssertionError();
             }
         }
@@ -42,7 +47,9 @@ public class StudentController {
     }
     
     // show all student
-    public void listAllStudent() {
-        
+    public void listAllStudent() throws SQLException {
+        StudentDAO studentDAO = new StudentDAO();
+        StudentView stView = new StudentView(studentDAO);
+        stView.displayStudent();
     }
 } 
