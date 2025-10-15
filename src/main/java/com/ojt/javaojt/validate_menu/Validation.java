@@ -7,9 +7,10 @@ package com.ojt.javaojt.validate_menu;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
+//import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
+import java.sql.Date;
 
 
 public class Validation {
@@ -209,7 +210,7 @@ public class Validation {
             SimpleDateFormat formatDate = new SimpleDateFormat(patternDate);
             formatDate.setLenient(false);
             try {
-                Date date = formatDate.parse(checkInputString());
+                Date date = (Date) formatDate.parse(checkInputString());
                 String formattedDate = formatDate.format(date);
                 return formattedDate;
             } catch (Exception e) {
@@ -221,32 +222,32 @@ public class Validation {
 
     }
 
-    public static String formatDateVstringLargeToday(String patternDate) {
-        System.out.print("Input Date in Form (" + patternDate + "): ");
-        while (true) {
-            SimpleDateFormat formatDate = new SimpleDateFormat(patternDate);
-            formatDate.setLenient(false);
-            try {
-                Date date = formatDate.parse(checkInputString());
-                Date today = new Date();
-                if (date.compareTo(today) > 0) {
-                    String formattedDate = formatDate.format(date);
-                    return formattedDate;
-                } else if (date.compareTo(today) == 0) {
-                    System.err.println("Can't happen.");
-                    System.out.print("Input again: ");
-                } else {
-                    System.err.println("Input Date in the Past.");
-                    System.out.print("Input again: ");
-                }
-            } catch (Exception e) {
-                System.err.println("Invalue, Format '" + patternDate + "'!");
-                System.out.print("Enter again: ");
-
-            }
-        }
-
-    }
+//    public static String formatDateVstringLargeToday(String patternDate) {
+//        System.out.print("Input Date in Form (" + patternDate + "): ");
+//        while (true) {
+//            SimpleDateFormat formatDate = new SimpleDateFormat(patternDate);
+//            formatDate.setLenient(false);
+//            try {
+//                Date date = (Date) formatDate.parse(checkInputString());
+//                Date today = new Date();
+//                if (date.compareTo(today) > 0) {
+//                    String formattedDate = formatDate.format(date);
+//                    return formattedDate;
+//                } else if (date.compareTo(today) == 0) {
+//                    System.err.println("Can't happen.");
+//                    System.out.print("Input again: ");
+//                } else {
+//                    System.err.println("Input Date in the Past.");
+//                    System.out.print("Input again: ");
+//                }
+//            } catch (Exception e) {
+//                System.err.println("Invalue, Format '" + patternDate + "'!");
+//                System.out.print("Enter again: ");
+//
+//            }
+//        }
+//
+//    }
 
     //w6
     public static Date checkInputDate() throws ParseException {
@@ -254,7 +255,7 @@ public class Validation {
             SimpleDateFormat type = new SimpleDateFormat("dd/MM/yyyy");
             type.setLenient(false);
             try {
-                Date date = type.parse(sc.nextLine());
+                Date date = (Date) type.parse(sc.nextLine());
                 return date;
             } catch (Exception e) {
                 System.err.println("This date invalid or unabailable! ");
