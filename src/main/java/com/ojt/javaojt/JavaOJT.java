@@ -1,6 +1,9 @@
 
 package com.ojt.javaojt;
 
+import com.ojt.javaojt.controller.UniversityManagementController;
+import com.ojt.javaojt.view.UniversityManagementView;
+
 /**
  *
  * @author hieup
@@ -8,6 +11,9 @@ package com.ojt.javaojt;
 public class JavaOJT {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        UniversityManagementView v = new UniversityManagementView();
+        UniversityManagementController c = new UniversityManagementController(v);
+        c.start();
+                
     }
 }
