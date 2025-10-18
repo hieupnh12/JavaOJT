@@ -26,11 +26,19 @@ public class StudentDAO {
             connect.close();
             return arrayList;
         } catch (SQLException e) {
-            System.out.println(e);
+            System.err.println(e);
             return null;
         }
     }
 
+    public void addStudent(Student student) {
+        try {
+            Connect connect = new Connect();
+            
+        } catch (SQLException e) {
+            System.err.println(e);
+        }
+    }
     public static void main(String[] args) {
         StudentDAO st = new StudentDAO();
         try {

@@ -24,6 +24,7 @@ public class StudentView {
         menu.addItem("Them sinh vien");
         menu.addItem("Sua sinh vien");
         menu.addItem("Xoa sinh vien");
+        menu.addItem("Quan li file");
         return menu;
     }
     

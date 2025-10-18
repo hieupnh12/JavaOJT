@@ -1,10 +1,10 @@
 
 package com.ojt.javaojt.model;
 
+import java.io.Serializable;
 import java.sql.Date;
 
-
-public class Student {
+public class Student implements Serializable, PrintFile{
     private int student_id;
     private String name;
     private Date date;
@@ -65,4 +65,23 @@ public class Student {
         );   
     }
     
+    @Override
+    public String printFile() {
+        return this.student_id + "," + this.name + "," + this.date + "," + this.email;   
+    }
+
+    public static Student fromFileString(String line) {
+        String[] parts = line.split(",");
+        try {
+            int id = Integer.parseInt(parts[0]);
+            String name = parts[1];
+            Date yob = Date.valueOf(parts[2]);
+            String email = parts[4];
+            
+            return new Student(id, name, yob, email);
+        } catch (NumberFormatException e) {
+            System.err.println(e);
+            return null;
+        }
+    }
 }
