@@ -41,30 +41,26 @@ public class DataStore<T extends PrintFile> {
     
    public List<T> loadFromFile(String fileName, FileParser<T> fileParser) {
        List<T> list = new ArrayList<>();
-       try {
-           BufferedReader reader = new BufferedReader(new FileReader(fileName));
+       try (BufferedReader reader = new BufferedReader(new FileReader(fileName));){
            String line;
            while ((line = reader.readLine()) != null) {               
                list.add(fileParser.parser(line));
            }
-           
-           ListObject<T> listObject = new ListObject<>();
-           listObject.setListObject(list);
-           return (List<T>) listObject;
+            
+           System.out.println("Thanh cong");
+           return list;
        } catch (IOException e) {
            System.err.println(e);
-           return null;
+           return new ArrayList<>();
        }
    }
    
    public void saveToFile(String fileName, List<T> listObjectTs) {
-       try {
-           BufferedWriter writer = new BufferedWriter(new FileWriter(fileName));
-           
+       try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName));){
+                  
            for (T listObjectT : listObjectTs) {
                writer.write(listObjectT.printFile());
                writer.newLine();
-               writer.flush();
            }
        } catch (IOException e) {
            System.err.println(e);

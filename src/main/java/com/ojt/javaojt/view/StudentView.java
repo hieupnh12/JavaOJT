@@ -12,8 +12,8 @@ import java.util.ArrayList;
 
 
 public class StudentView {
-    private StudentDAO studentDAO;
-
+    private final StudentDAO studentDAO;
+ 
     public StudentView(StudentDAO studentDAO) {
         this.studentDAO = studentDAO;
     }

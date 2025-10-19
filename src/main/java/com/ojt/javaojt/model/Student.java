@@ -76,7 +76,7 @@ public class Student implements Serializable, PrintFile{
             int id = Integer.parseInt(parts[0]);
             String name = parts[1];
             Date yob = Date.valueOf(parts[2]);
-            String email = parts[4];
+            String email = parts[3];
             
             return new Student(id, name, yob, email);
         } catch (NumberFormatException e) {

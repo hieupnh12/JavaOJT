@@ -45,10 +45,16 @@ public class FileController {
     }
 
     private void saveToFile() {
-        
+        this.fileView.saveFileStudent();
     }
     
     private void loadFromFile() {
         this.fileView.loadFileStudent();
+    }
+    
+    public static void main(String[] args) {
+        FileView fv = new FileView();
+        FileController fl = new FileController(fv);
+        fl.start();
     }
 }

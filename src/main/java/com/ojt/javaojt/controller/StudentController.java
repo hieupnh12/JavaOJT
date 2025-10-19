@@ -1,7 +1,6 @@
 
 package com.ojt.javaojt.controller;
 
-import com.ojt.javaojt.data.StudentDAO;
 import com.ojt.javaojt.validate_menu.Menu;
 import com.ojt.javaojt.view.FileView;
 import com.ojt.javaojt.view.StudentView;
@@ -57,8 +56,6 @@ public class StudentController {
     
     // show all student
     public void listAllStudent() throws SQLException {
-        StudentDAO studentDAO = new StudentDAO();
-        StudentView stView = new StudentView(studentDAO);
-        stView.displayStudent();
+        studentView.displayStudent();
     }   
 } 

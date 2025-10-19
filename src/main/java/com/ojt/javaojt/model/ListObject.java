@@ -22,5 +22,7 @@ public class ListObject<T> {
         this.listObject = listObject;
     }
     
-    
+    public void addObject(Object object) {
+        listObject.add((T) object);
+    }
 }
