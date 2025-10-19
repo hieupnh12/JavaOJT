@@ -51,5 +51,8 @@ public class Connect {
             connection.close();
         }
     }
+        public Connection getConnection() {
+        return connection;
+    }
     
 }

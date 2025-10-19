@@ -6,16 +6,18 @@ public class Course {
     private int courseId;
     private String name;
     private int credits;
-    private Lecturer lecturer;
+    private int lecturer_id;
 
-    public Course() {
-    }
-
-    public Course(int courseId, String name, int credits, Lecturer lecturer) {
+    public Course(int courseId, String name, int credits, int lecturer_id) {
         this.courseId = courseId;
         this.name = name;
         this.credits = credits;
-        this.lecturer = lecturer;
+        this.lecturer_id = lecturer_id;
+    }
+    
+    
+
+    public Course() {
     }
 
     public int getCourseId() {
@@ -42,18 +44,20 @@ public class Course {
         this.credits = credits;
     }
 
-    public Lecturer getLecturer() {
-        return lecturer;
+    public int getLecturer_id() {
+        return lecturer_id;
     }
 
-    public void setLecturer(Lecturer lecturer) {
-        this.lecturer = lecturer;
+    public void setLecturer_id(int lecturer_id) {
+        this.lecturer_id = lecturer_id;
     }
 
     @Override
     public String toString() {
-        return "Course{" + "courseId=" + courseId + ", name=" + name + ", credits=" + credits + ", lecturer=" + lecturer + '}';
+        return "Course{" + "courseId=" + courseId + ", name=" + name + ", credits=" + credits + ", lecturer_id=" + lecturer_id + '}';
     }
+
+
     
     
 }
