@@ -5,6 +5,7 @@ import com.ojt.javaojt.data.StudentDAO;
 import com.ojt.javaojt.validate_menu.Menu;
 import com.ojt.javaojt.view.StudentView;
 import com.ojt.javaojt.view.UniversityManagementView;
+import com.ojt.javaojt.controller.CourseController;
 import java.sql.SQLException;
 
 
@@ -14,6 +15,7 @@ public class UniversityManagementController {
     StudentDAO studentDAO = new StudentDAO();
     StudentView studentView = new StudentView(studentDAO);
     StudentController studentController = new StudentController(studentView);
+    CourseController courseController = new CourseController();
     public UniversityManagementController() {
     }
 
@@ -33,12 +35,22 @@ public class UniversityManagementController {
                     studentController.start();
                     break;
                 case 2:
+                    System.out.println("Lecturer management not implemented yet.");
+                    break;
+                case 3:
+                    courseController.start();
+                    break;
+                case 4:
+                    System.out.println("Enrollment management not implemented yet.");
+                    break;
+                case 5:
+                    System.out.println("Report generation not implemented yet.");
                     break;
                 case 6: 
                     System.err.println("Exit Program!");
                     return;
                 default:
-                    throw new AssertionError();
+                    System.err.println("Invalid option. Try again.");
             }
         }
     }
