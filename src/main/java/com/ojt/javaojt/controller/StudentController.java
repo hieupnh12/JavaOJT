@@ -46,7 +46,7 @@ public class StudentController {
     }
     
     // update student
-    public void updateStudent() {
+    public void updateStudent() throws ParseException {
         this.studentView.updateStudent();
     }
     
