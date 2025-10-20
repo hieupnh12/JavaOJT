@@ -6,6 +6,8 @@ import com.ojt.javaojt.model.CourseList;
 import com.ojt.javaojt.validate_menu.Menu;
 import com.ojt.javaojt.view.CourseView;
 import com.ojt.javaojt.view.StudentView;
+import com.ojt.javaojt.model.Repo;
+import com.ojt.javaojt.view.RepoView;
 import com.ojt.javaojt.view.UniversityManagementView;
 import java.io.IOException;
 import java.sql.SQLException;
@@ -21,6 +23,9 @@ public class UniversityManagementController {
     StudentController studentController = new StudentController(studentView);
     CourseView couserView = new CourseView(courseList);
     CourseController courseController = new CourseController(couserView);
+    Repo repo = new Repo();
+    RepoView repoView = new RepoView(repo);
+    RepoController repoController = new RepoController(repoView);
     public UniversityManagementController() {
     }
 
@@ -43,6 +48,12 @@ public class UniversityManagementController {
                     break;
                 case 3:
                     courseController.start();
+                    break;
+                case 4: 
+                    break;
+                case 5:
+                    repoController.start();
+                    break;
                 case 6: 
                     System.err.println("Exit Program!");
                     return;
