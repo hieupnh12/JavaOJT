@@ -32,6 +32,27 @@ public class StudentView {
         return menu.getChoiceFromMenu("QUAN LI SINH VIEN");
     }
     
+    public void addStudent() throws ParseException {
+        this.studentDAO.addStudent(inputStudent());
+    }
+    
+    public void deleteStudent() {
+        displayMenuStudent();
+        System.out.print("Enter id: ");
+        int id = Validation.checkInputInt();
+        this.studentDAO.deleteStudent(id);
+    }
+    
+    public void updateStudent() throws ParseException {
+        displayMenuStudent();
+        System.out.print("Enter id: ");
+        int id = Validation.checkInputInt();
+        Student st = inputStudent();
+        st.setStudent_id(id);
+        
+        this.studentDAO.updateStudent(st);
+    }
+    
     // input student
     public Student inputStudent() throws ParseException {
         System.out.print("Enter name: ");
