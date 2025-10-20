@@ -12,8 +12,8 @@ import java.util.ArrayList;
 
 
 public class StudentView {
-    private StudentDAO studentDAO;
-
+    private final StudentDAO studentDAO;
+ 
     public StudentView(StudentDAO studentDAO) {
         this.studentDAO = studentDAO;
     }
@@ -24,6 +24,7 @@ public class StudentView {
         menu.addItem("Them sinh vien");
         menu.addItem("Sua sinh vien");
         menu.addItem("Xoa sinh vien");
+        menu.addItem("Quan li file");
         return menu;
     }
     

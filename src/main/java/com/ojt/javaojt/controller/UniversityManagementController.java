@@ -14,6 +14,7 @@ import java.sql.SQLException;
 public class UniversityManagementController {
     private UniversityManagementView uniView;
     
+    // Student
     StudentDAO studentDAO = new StudentDAO();
     CourseList courseList = new CourseList();
     StudentView studentView = new StudentView(studentDAO);
