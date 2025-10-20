@@ -1,6 +1,3 @@
 /target/
-<<<<<<< HEAD
-=======
 # Database connection & config
 src/main/java/com/ojt/javaojt/data/Connect.java
->>>>>>> main
