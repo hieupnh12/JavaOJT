@@ -8,8 +8,9 @@ import com.ojt.javaojt.validate_menu.Validation;
 import java.util.List;
 
 public class FileView {
+
     private ListObject<Student> listStudent = new ListObject<>();
-    
+
     public Menu displayMenuFile() {
         Menu menu = new Menu();
         menu.addItem("Xem danh sach");
@@ -23,14 +24,19 @@ public class FileView {
     }
 
     public void displayAllObject() {
-        System.out.println("DANH SACH");
-        if (!listStudent.getListObject().isEmpty()) {
-            for (Object object : listStudent.getListObject()) {
-                System.out.println(object.toString());
+        try {
+            System.out.println("DANH SACH");
+            if (!listStudent.getListObject().isEmpty()) {
+                for (Object object : listStudent.getListObject()) {
+                    System.out.println(object.toString());
+                }
+            } else {
+                System.out.println("Empty!");
             }
-        }else {
-            System.out.println("Empty!");
+        } catch (Exception e) {
+            System.out.println(e);
         }
+
     }
 
     public void loadFileStudent() {
@@ -41,7 +47,7 @@ public class FileView {
             DataStore dataStore = new DataStore(fileString);
             List<Student> list = dataStore.loadFromFile(fileString, Student::fromFileString);
             listStudent.setListObject(list);
-            
+
             for (Student student : listStudent.getListObject()) {
                 System.out.println(student.printFile());
             }
@@ -49,17 +55,17 @@ public class FileView {
             System.out.println("Loi " + e);
         }
     }
-    
+
     public void addStudent(Student st) {
         listStudent.addObject(st);
     }
-    
+
     public void saveFileStudent() {
         try {
             String fileString = "src/main/java/com/ojt/javaojt/data/dataStudent.txt";
             DataStore dataStore = new DataStore(fileString);
             dataStore.saveToFile(fileString, listStudent.getListObject());
-            
+
         } catch (Exception e) {
             System.out.println(e);
         }
