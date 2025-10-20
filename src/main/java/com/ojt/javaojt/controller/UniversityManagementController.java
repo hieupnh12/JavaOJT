@@ -11,6 +11,7 @@ import com.ojt.javaojt.view.RepoView;
 import com.ojt.javaojt.view.UniversityManagementView;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.text.ParseException;
 
 
 public class UniversityManagementController {
@@ -33,7 +34,7 @@ public class UniversityManagementController {
         this.uniView = uniView;
     }
     
-    public void start() throws SQLException, IOException {
+    public void start() throws SQLException, IOException, ParseException {
         int choice;
         Menu menu = this.uniView.displayMainMenu();
         
@@ -48,11 +49,6 @@ public class UniversityManagementController {
                     break;
                 case 3:
                     courseController.start();
-                    break;
-                case 4: 
-                    break;
-                case 5:
-                    repoController.start();
                     break;
                 case 6: 
                     System.err.println("Exit Program!");

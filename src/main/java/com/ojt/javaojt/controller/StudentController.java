@@ -5,6 +5,7 @@ import com.ojt.javaojt.validate_menu.Menu;
 import com.ojt.javaojt.view.FileView;
 import com.ojt.javaojt.view.StudentView;
 import java.sql.SQLException;
+import java.text.ParseException;
 
 
 public class StudentController {
@@ -17,7 +18,7 @@ public class StudentController {
         this.studentView = studentView;
     }
     
-    public void start() throws SQLException {
+    public void start() throws SQLException, ParseException {
         int choice;
         Menu menu = studentView.displayMenuStudent();
         FileView fileView = new FileView();
@@ -40,22 +41,22 @@ public class StudentController {
     }
     
     // add student
-    public void addStudent() {
-        
+    private void addStudent() throws ParseException {
+        this.studentView.addStudent();
     }
     
     // update student
     public void updateStudent() {
-        
+        this.studentView.updateStudent();
     }
     
     // remove student
     public void removeStudent() {
-        
+        this.studentView.deleteStudent();
     }
     
     // show all student
-    public void listAllStudent() throws SQLException {
+    private void listAllStudent() throws SQLException {
         studentView.displayStudent();
     }   
 } 

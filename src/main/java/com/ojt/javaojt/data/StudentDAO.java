@@ -38,6 +38,7 @@ public class StudentDAO {
     public void deleteStudent(int id) {
         try (Connect connect = new Connect()){
             connect.query("DELETE FROM STUDENT WHERE student_id = ?", id);
+            System.out.println("Thanh cong");
         } catch (Exception e) {
             System.err.println(e);
         }
