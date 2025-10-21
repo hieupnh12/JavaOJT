@@ -250,13 +250,47 @@ public class Validation {
 //    }
 
     //w6
+    public static Date checkInputDate(String min, String max) throws ParseException {
+        SimpleDateFormat type = new SimpleDateFormat("dd/MM/yyyy");
+        type.setLenient(false);
+
+        java.util.Date minDate = null;
+        java.util.Date maxDate = null;
+        
+         try {
+            minDate = type.parse(min);
+            // nếu max bị null hoặc rỗng thì lấy ngày hiện tại
+            if (max == null || max.isEmpty()) {
+                maxDate = new java.util.Date();
+            } else {
+                maxDate = type.parse(max);
+            }
+        } catch (ParseException e) {
+            System.err.println("⚠️ Lỗi định dạng min hoặc max ngày!");
+            return null;
+        }
+        while (true) {
+           
+            try {
+                java.util.Date utilDate = type.parse(sc.nextLine());
+                if (utilDate.before(minDate) || utilDate.after(maxDate)) {
+                    throw new Exception();
+                }else
+                return new java.sql.Date(utilDate.getTime());
+            } catch (Exception e) {
+                System.err.println("This date invalid or unabailable! ");
+                System.out.print("Please enter again: ");
+            }
+        }
+    }
+    
     public static Date checkInputDate() throws ParseException {
         while (true) {
             SimpleDateFormat type = new SimpleDateFormat("dd/MM/yyyy");
             type.setLenient(false);
             try {
-                Date date = (Date) type.parse(sc.nextLine());
-                return date;
+                java.util.Date utilDate = type.parse(sc.nextLine());
+                return new java.sql.Date(utilDate.getTime());
             } catch (Exception e) {
                 System.err.println("This date invalid or unabailable! ");
                 System.out.print("Please enter again: ");
@@ -299,4 +333,16 @@ public class Validation {
         }
     }
 
+    public static String checkInputEmail() {
+        while (true) {            
+            try {
+                String value = checkInputString();
+                if (value.matches("^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$")) {
+                    return value;
+                } else throw new Exception();
+            } catch (Exception e) {
+                System.out.println("Please input ");
+            }
+        }
+    }
 }

@@ -46,7 +46,7 @@ public class StudentDAO {
     
     public void updateStudent(Student student) {
         try (Connect connect = new Connect()){
-            connect.query("UPDATE STUDENT SET name = ?, dob = ?, email = ? WHERE id = ?",
+            connect.query("UPDATE STUDENT SET name = ?, dob = ?, email = ? WHERE student_id = ?",
                     student.getName(), student.getDate(), student.getEmail(), student.getStudent_id());
         } catch (Exception e) {
             System.err.println(e);

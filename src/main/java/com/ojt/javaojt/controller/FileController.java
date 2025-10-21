@@ -31,7 +31,11 @@ public class FileController {
                 case 3: 
                     loadFromFile();
                     break;
-                case 4: {
+                case 4:
+                    break;
+                case 5:
+                    break;
+                case 6: {
                     return;
                 }
                 default:

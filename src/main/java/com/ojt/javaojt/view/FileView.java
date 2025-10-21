@@ -14,8 +14,10 @@ public class FileView {
     public Menu displayMenuFile() {
         Menu menu = new Menu();
         menu.addItem("Xem danh sach");
-        menu.addItem("Save to file");
+        menu.addItem("Save to file can read");
         menu.addItem("Load to file can read");
+        menu.addItem("Save file object");
+        menu.addItem("Load file object");
         return menu;
     }
 
@@ -48,7 +50,7 @@ public class FileView {
             List<Student> list = dataStore.loadFromFile(fileString, Student::fromFileString);
             listStudent.setListObject(list);
 
-            for (Student student : listStudent.getListObject()) {
+            for (Student student : list) {
                 System.out.println(student.printFile());
             }
         } catch (Exception e) {

@@ -27,10 +27,10 @@ public class StudentController {
             choice = studentView.getOptionStudent(menu);
             
             switch (choice) {
-                case 1 -> listAllStudent();
-                case 2 -> addStudent();
-                case 3 -> updateStudent(); 
-                case 4 -> removeStudent();
+                case 1 -> studentView.displayStudent();
+                case 2 -> this.studentView.addStudent();
+                case 3 -> this.studentView.updateStudent();
+                case 4 -> this.studentView.deleteStudent();
                 case 5 -> fileController.start();
                 case 6 -> {
                     return;
@@ -39,24 +39,4 @@ public class StudentController {
             }
         }
     }
-    
-    // add student
-    private void addStudent() throws ParseException {
-        this.studentView.addStudent();
-    }
-    
-    // update student
-    public void updateStudent() throws ParseException {
-        this.studentView.updateStudent();
-    }
-    
-    // remove student
-    public void removeStudent() {
-        this.studentView.deleteStudent();
-    }
-    
-    // show all student
-    private void listAllStudent() throws SQLException {
-        studentView.displayStudent();
-    }   
 } 

@@ -36,15 +36,15 @@ public class StudentView {
         this.studentDAO.addStudent(inputStudent());
     }
     
-    public void deleteStudent() {
-        displayMenuStudent();
+    public void deleteStudent() throws SQLException {
+        displayStudent();
         System.out.print("Enter id: ");
         int id = Validation.checkInputInt();
         this.studentDAO.deleteStudent(id);
     }
     
-    public void updateStudent() throws ParseException {
-        displayMenuStudent();
+    public void updateStudent() throws ParseException, SQLException {
+        displayStudent();
         System.out.print("Enter id: ");
         int id = Validation.checkInputInt();
         Student st = inputStudent();
@@ -59,7 +59,8 @@ public class StudentView {
         String name = Validation.checkInputString();
         System.out.print("Enter yob: ");
         Date date = Validation.checkInputDate();
-        String email = Validation.checkInputString();
+        System.out.print("Enter email: ");
+        String email = Validation.checkInputEmail();
         
         return new Student(name, date, email);
     }
