@@ -3,8 +3,9 @@ package com.ojt.javaojt.model;
 
 import java.io.Serializable;
 import java.sql.Date;
+import java.util.Comparator;
 
-public class Student implements Serializable, PrintFile{
+public class Student implements Serializable, PrintFile, Comparable<Student>{
     private int student_id;
     private String name;
     private Date date;
@@ -84,4 +85,16 @@ public class Student implements Serializable, PrintFile{
             return null;
         }
     }
+
+    @Override
+    public int compareTo(Student o) {
+        return this.date.compareTo(o.date);
+    }
+
+    public static Comparator<Student> comparator = new Comparator<Student>() {
+        @Override
+        public int compare(Student o1, Student o2) {
+            return o1.name.compareTo(o2.name);
+        }
+    };
 }

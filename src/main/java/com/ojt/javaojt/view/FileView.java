@@ -5,6 +5,8 @@ import com.ojt.javaojt.model.ListObject;
 import com.ojt.javaojt.model.Student;
 import com.ojt.javaojt.validate_menu.Menu;
 import com.ojt.javaojt.validate_menu.Validation;
+import java.sql.Date;
+import java.text.ParseException;
 import java.util.List;
 
 public class FileView {
@@ -18,6 +20,7 @@ public class FileView {
         menu.addItem("Load to file can read");
         menu.addItem("Save file object");
         menu.addItem("Load file object");
+        menu.addItem("Add a student");
         return menu;
     }
 
@@ -58,8 +61,10 @@ public class FileView {
         }
     }
 
-    public void addStudent(Student st) {
-        listStudent.addObject(st);
+    public void addStudent() throws ParseException {
+        while (Validation.checkInputYN()) {            
+            listStudent.addObject(inputStudent());
+        }
     }
 
     public void saveFileStudent() {
@@ -71,5 +76,37 @@ public class FileView {
         } catch (Exception e) {
             System.out.println(e);
         }
+    }
+
+    public void saveFileStream() {
+        try {
+            String fileString = "src/main/java/com/ojt/javaojt/data/dataStudentStream.txt";
+            DataStore dataStore = new DataStore(fileString);
+            dataStore.saveAll(this.listStudent.getListObject());
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+    
+    public void readFileStream() {
+        try {
+            String fileString = "src/main/java/com/ojt/javaojt/data/dataStudentStream.txt";
+            DataStore dataStore = new DataStore(fileString);
+            this.listStudent.setListObject(dataStore.loadAll());
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+    
+    // input student
+    public Student inputStudent() throws ParseException {
+        System.out.print("Enter name: ");
+        String name = Validation.checkInputString();
+        System.out.print("Enter yob: ");
+        Date date = Validation.checkInputDate();
+        System.out.print("Enter email: ");
+        String email = Validation.checkInputEmail();
+        
+        return new Student(name, date, email);
     }
 }
