@@ -22,6 +22,5 @@ public class JavaOJT {
         UniversityManagementController umc = new UniversityManagementController(umv);
         
         umc.start();
-
     }
 }

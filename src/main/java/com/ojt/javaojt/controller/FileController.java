@@ -2,6 +2,7 @@ package com.ojt.javaojt.controller;
 
 import com.ojt.javaojt.validate_menu.Menu;
 import com.ojt.javaojt.view.FileView;
+import java.text.ParseException;
 
 public class FileController {
 
@@ -14,7 +15,7 @@ public class FileController {
         this.fileView = fileView;
     }
 
-    public void start() {
+    public void start() throws ParseException {
         int choice;
         Menu menu = fileView.displayMenuFile();
 
@@ -32,10 +33,15 @@ public class FileController {
                     loadFromFile();
                     break;
                 case 4:
+                    this.fileView.saveFileStream();
                     break;
                 case 5:
+                    this.fileView.readFileStream();
                     break;
-                case 6: {
+                case 6: 
+                    this.fileView.addStudent();
+                    break;
+                case 7: {
                     return;
                 }
                 default:
@@ -56,7 +62,7 @@ public class FileController {
         this.fileView.loadFileStudent();
     }
     
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ParseException {
         FileView fv = new FileView();
         FileController fl = new FileController(fv);
         fl.start();

@@ -24,7 +24,7 @@ public class DataStore<T extends PrintFile> {
    public void saveAll(List<T> object) {
        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(filePath))){
            oos.writeObject(object);
-           System.out.println("Save " + object.size() + "file pash" + filePath);
+           System.out.println("Save " + object.size() + " file pash " + filePath);
        } catch (IOException e) {
            System.out.println("");
        }
