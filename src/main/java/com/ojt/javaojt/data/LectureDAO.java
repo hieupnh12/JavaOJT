@@ -1,7 +1,6 @@
 
 package com.ojt.javaojt.data;
 
-import com.ojt.javaojt.data.Connect;
 import com.ojt.javaojt.model.Lecturer;
 import com.ojt.javaojt.validate_menu.Validation;
 import java.sql.CallableStatement;
