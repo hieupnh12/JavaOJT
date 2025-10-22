@@ -1,15 +1,11 @@
-
 package com.ojt.javaojt.model;
 
-
 public class Lecturer {
+
     private int lecturerId;
     private String name;
     private String email;
     private String department;
-
-    public Lecturer() {
-    }
 
     public Lecturer(int lecturerId, String name, String email, String department) {
         this.lecturerId = lecturerId;
@@ -18,10 +14,25 @@ public class Lecturer {
         this.department = department;
     }
 
+    public Lecturer(String name, String email, String department) {
+        this.name = name;
+        this.email = email;
+        this.department = department;
+    }
+    
+    
+
+    public Lecturer() {
+    }
+
+    
+    
+    
+    // Getter và Setter
     public int getLecturerId() {
         return lecturerId;
     }
-
+    
     public void setLecturerId(int lecturerId) {
         this.lecturerId = lecturerId;
     }
@@ -52,8 +63,14 @@ public class Lecturer {
 
     @Override
     public String toString() {
-        return "Lecturer{" + "lecturerId=" + lecturerId + ", name=" + name + ", email=" + email + ", department=" + department + '}';
+        return String.format(
+                "|%-8s|%-25s|%-25s|%-25s|", this.lecturerId, this.name, this.email , this.department
+                );
     }
-     
+    
+    
+    
+    
     
 }
+
