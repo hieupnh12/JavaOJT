@@ -7,6 +7,7 @@ import com.ojt.javaojt.validate_menu.Menu;
 import com.ojt.javaojt.view.CourseView;
 import com.ojt.javaojt.view.StudentView;
 import com.ojt.javaojt.model.Repo;
+import com.ojt.javaojt.view.LecturerView;
 import com.ojt.javaojt.view.RepoView;
 import com.ojt.javaojt.view.UniversityManagementView;
 import java.io.IOException;
@@ -27,6 +28,9 @@ public class UniversityManagementController {
     Repo repo = new Repo();
     RepoView repoView = new RepoView(repo);
     RepoController repoController = new RepoController(repoView);
+      LecturerView view = new LecturerView();
+     LecturerController lecturerController = new LecturerController(view);
+    
     public UniversityManagementController() {
     }
 
@@ -46,6 +50,7 @@ public class UniversityManagementController {
                     studentController.start();
                     break;
                 case 2:
+                    lecturerController.start();
                     break;
                 case 3:
                     courseController.start();

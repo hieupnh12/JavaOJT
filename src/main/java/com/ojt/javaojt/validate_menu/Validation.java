@@ -117,7 +117,27 @@ public class Validation {
     }
 
   
-
+    
+    public  static String checkInputEmail2(){
+         while(true){
+             try {
+                 String regex = "^[A-Za-z0-9+_.-]+@gmail.com+$";
+                 String email= sc.nextLine();
+                 if(!email.matches(regex)){
+                     throw new Exception();
+                 }else{
+                     return email;
+                 }
+                         
+             }catch (Exception e) {
+                System.err.println("Wrong type Email!");
+                System.out.print("Input again: ");
+            }
+         }
+    }
+    
+    
+    
 //    public static String checkInputCodeStudent(ArrayList<Student> std) {
 //        String code = checkInputString();
 //
