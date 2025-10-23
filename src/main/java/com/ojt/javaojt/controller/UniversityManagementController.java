@@ -10,6 +10,7 @@ import com.ojt.javaojt.model.Repo;
 import com.ojt.javaojt.view.LecturerView;
 import com.ojt.javaojt.view.RepoView;
 import com.ojt.javaojt.view.UniversityManagementView;
+import com.ojt.javaojt.controller.EnrollmentController;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.text.ParseException;
@@ -30,6 +31,7 @@ public class UniversityManagementController {
     RepoController repoController = new RepoController(repoView);
       LecturerView view = new LecturerView();
      LecturerController lecturerController = new LecturerController(view);
+     EnrollmentController enrollmentController = new EnrollmentController();
     
     public UniversityManagementController() {
     }
@@ -56,6 +58,8 @@ public class UniversityManagementController {
                     courseController.start();
                     break;
                 case 4: 
+                    
+                    enrollmentController.start();
                     break;
                 case 5:
                     repoController.start();
