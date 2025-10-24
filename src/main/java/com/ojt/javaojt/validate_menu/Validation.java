@@ -361,7 +361,7 @@ public class Validation {
                     return value;
                 } else throw new Exception();
             } catch (Exception e) {
-                System.out.println("Please input ");
+                System.out.print("Please input email: ");
             }
         }
     }

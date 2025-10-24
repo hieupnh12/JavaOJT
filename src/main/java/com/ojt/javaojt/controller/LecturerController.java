@@ -52,11 +52,7 @@ public class LecturerController {
                     removeLecturer();
                     break;
                 case 4:
-                    break;
-                case 5:
-                    break;
-                case 6:
-                    break;
+                    return;
                 default:
                     throw new AssertionError();
             }

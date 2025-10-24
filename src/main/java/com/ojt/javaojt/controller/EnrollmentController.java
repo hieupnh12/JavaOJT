@@ -2,6 +2,7 @@ package com.ojt.javaojt.controller;
 
 import com.ojt.javaojt.service.ConcurrentEnrollmentService;
 import com.ojt.javaojt.data.EnrollmentDAO;
+import com.ojt.javaojt.validate_menu.Validation;
 import java.sql.SQLException;
 import java.util.Scanner;
 
@@ -63,10 +64,10 @@ public class EnrollmentController {
     
     private void simulateConcurrentEnrollment() {
         System.out.print("Nhap ID mon hoc: ");
-        int courseId = Integer.parseInt(scanner.nextLine());
+        int courseId = Validation.checkInputInt();
         
         System.out.print("Nhap so luong sinh vien: ");
-        int numberOfStudents = Integer.parseInt(scanner.nextLine());
+        int numberOfStudents = Validation.checkInputInt();
         
         enrollmentService.simulateConcurrentEnrollment(courseId, numberOfStudents);
         
@@ -80,10 +81,10 @@ public class EnrollmentController {
     
     private void simulateEnrollmentConflict() {
         System.out.print("Nhap ID mon hoc: ");
-        int courseId = Integer.parseInt(scanner.nextLine());
+        int courseId = Validation.checkInputInt();
         
         System.out.print("Nhap danh sach ID sinh vien (cach nhau boi dau phay): ");
-        String input = scanner.nextLine();
+        String input = Validation.checkInputString();
         String[] parts = input.split(",");
         int[] studentIds = new int[parts.length];
         
@@ -103,17 +104,17 @@ public class EnrollmentController {
     
     private void showEnrollmentResults() throws SQLException {
         System.out.print("Nhap ID mon hoc: ");
-        int courseId = Integer.parseInt(scanner.nextLine());
+        int courseId = Validation.checkInputInt();
         
         enrollmentService.showEnrollmentResults(courseId);
     }
     
     private void enrollSingleStudent() {
         System.out.print("Nhap ID sinh vien: ");
-        int studentId = Integer.parseInt(scanner.nextLine());
+        int studentId = Validation.checkInputInt();
         
         System.out.print("Nhap ID mon hoc: ");
-        int courseId = Integer.parseInt(scanner.nextLine());
+        int courseId = Validation.checkInputInt();
         
         try {
             boolean success = enrollmentDAO.enrollStudent(studentId, courseId);
@@ -129,10 +130,10 @@ public class EnrollmentController {
     
     private void unenrollStudent() {
         System.out.print("Nhap ID sinh vien: ");
-        int studentId = Integer.parseInt(scanner.nextLine());
+        int studentId = Validation.checkInputInt();
         
         System.out.print("Nhap ID mon hoc: ");
-        int courseId = Integer.parseInt(scanner.nextLine());
+        int courseId = Validation.checkInputInt();
         
         try {
             boolean success = enrollmentDAO.unenrollStudent(studentId, courseId);
@@ -148,7 +149,7 @@ public class EnrollmentController {
     
     private void showStudentEnrollments() throws SQLException {
         System.out.print("Nhap ID sinh vien: ");
-        int studentId = Integer.parseInt(scanner.nextLine());
+        int studentId = Validation.checkInputInt();
         
         var enrollments = enrollmentDAO.getEnrollmentsByStudent(studentId);
         

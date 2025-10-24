@@ -20,7 +20,6 @@ public class LecturerView {
         menu.addItem("Them giang vien");
         menu.addItem("Sua giang vien");
         menu.addItem("Xoa giang vien");
-        menu.addItem("Quay lai");
         return menu;
     }
     
