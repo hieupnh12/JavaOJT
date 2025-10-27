@@ -15,10 +15,11 @@ public class RepoController {
         while (true) {
             int choice = repoView.getOptionRepo(menu);
             switch (choice) {
-                case 1 -> repoView.displayStudentsByCourse();
-                case 2 -> repoView.displayAverageGradePerStudent();
-                case 3 -> repoView.displayStudentCountPerCourse();
-                case 4 -> {
+                case 1 -> repoView.displayAllCourse();
+                case 2 -> repoView.displayStudentsByCourse();
+                case 3 -> repoView.displayAverageGradePerStudent();
+                case 4 -> repoView.displayStudentCountPerCourse();
+                case 5 -> {
                     System.out.println("Quay lai menu chinh...");
                     return;
                 }

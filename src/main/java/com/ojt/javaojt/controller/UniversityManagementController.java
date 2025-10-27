@@ -27,7 +27,7 @@ public class UniversityManagementController {
     CourseView couserView = new CourseView(courseList);
     CourseController courseController = new CourseController(couserView);
     Repo repo = new Repo();
-    RepoView repoView = new RepoView(repo);
+    RepoView repoView = new RepoView(repo, courseList);
     RepoController repoController = new RepoController(repoView);
       LecturerView view = new LecturerView();
      LecturerController lecturerController = new LecturerController(view);
