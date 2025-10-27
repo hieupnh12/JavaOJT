@@ -8,18 +8,18 @@ import java.util.List;
 public class Repo {
 
     // Danh sách sinh viên trong 1 khóa học cụ thể
-    public List<String> getStudentsByCourse(String courseName) {
+    public List<String> getStudentsByCourse(String courseID) {
         List<String> result = new ArrayList<>();
         String sql = """
                 SELECT s.name AS studentName, e.grade, e.enroll_date
                 FROM enrollment e
                 JOIN student s ON e.student_id = s.student_id
                 JOIN course c ON e.course_id = c.course_id
-                WHERE c.name = ?
+                WHERE c.course_id = ?
                 """;
 
         try (Connect conn = new Connect();
-             ResultSet rs = conn.fetch(sql, courseName)) {
+             ResultSet rs = conn.fetch(sql, courseID)) {
             while (rs.next()) {
                 result.add(String.format("%-20s | Grade: %.2f | Enrolled: %s",
                         rs.getString("studentName"),
