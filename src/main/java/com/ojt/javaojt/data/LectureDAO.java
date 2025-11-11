@@ -102,7 +102,13 @@ public class LectureDAO {
         }       
     }
     
-    
+    public void dangKiDiem(double grade, int id, int course, String status) {
+        try (Connect connect = new Connect()){
+            connect.query("UPDATE ENROLLMENT SET Grade = ?, STATUS = ? WHERE STUDENT_ID = ? AND COURSE_ID = ?", grade, status, id, course);
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
     
     
     

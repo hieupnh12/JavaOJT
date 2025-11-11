@@ -52,6 +52,9 @@ public class LecturerController {
                     removeLecturer();
                     break;
                 case 4:
+                    this.uniView.register();
+                    break;
+                case 5:
                     return;
                 default:
                     throw new AssertionError();
@@ -122,4 +125,9 @@ public class LecturerController {
         lec = new Lecturer( name, emai, department);
      }
      
+     public static void main(String[] args) throws SQLException {
+         LecturerView lecturerView = new LecturerView();
+        LecturerController lec = new LecturerController(lecturerView);
+        lec.start();
+    }
 }

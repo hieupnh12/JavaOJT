@@ -7,8 +7,18 @@ public class Enrollment {
     private int courseId;
     private Date enrollDate;
     private Double grade;
+    private char status;
     
     public Enrollment() {}
+
+    public Enrollment(int studentId, int courseId, Date enrollDate, Double grade, char status) {
+        this.studentId = studentId;
+        this.courseId = courseId;
+        this.enrollDate = enrollDate;
+        this.grade = grade;
+        this.status = status;
+    }
+
     
     public Enrollment(int studentId, int courseId, Date enrollDate, Double grade) {
         this.studentId = studentId;
@@ -16,6 +26,15 @@ public class Enrollment {
         this.enrollDate = enrollDate;
         this.grade = grade;
     }
+
+    public char getStatus() {
+        return status;
+    }
+
+    public void setStatus(char status) {
+        this.status = status;
+    }
+    
     
     // Getters and Setters
     public int getStudentId() { 
